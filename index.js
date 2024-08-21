@@ -24,7 +24,7 @@ app.get("/", (req, res) => {
 });
 
 // Handle /api-copilot-runtime endpoint
-app.use("/api-copilot-runtime", (req, res, next) => {
+app.use("/copilotkit", (req, res, next) => {
     // Respond with "hello runtime!" if no specific query is provided
     if (req.method === "GET" && Object.keys(req.query).length === 0 && !req.body) {
         res.send("hello runtime!");
@@ -33,7 +33,7 @@ app.use("/api-copilot-runtime", (req, res, next) => {
         const serviceAdapter = new OpenAIAdapter({ openai });
         const runtime = new CopilotRuntime();
         const handler = copilotRuntimeNodeHttpEndpoint({
-            endpoint: "/api-copilot-runtime",
+            endpoint: "/copilotkit",
             runtime,
             serviceAdapter,
         });
@@ -42,5 +42,8 @@ app.use("/api-copilot-runtime", (req, res, next) => {
     }
 });
 
+app.listen(4000, () => {
+    console.log("Listening at http://localhost:4000/copilotkit");
+  });
 // Export the app for Vercel
 export default app;
