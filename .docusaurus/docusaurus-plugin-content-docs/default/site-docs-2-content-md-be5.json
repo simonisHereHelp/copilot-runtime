@@ -1,0 +1,22 @@
+{
+  "id": "content",
+  "title": "Hello from Docusaurus",
+  "description": "Create a doc page with rich content.",
+  "source": "@site/docs/2-content.md",
+  "sourceDirName": ".",
+  "slug": "/content",
+  "permalink": "/docs/content",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 2,
+  "frontMatter": {
+    "description": "Create a doc page with rich content."
+  },
+  "sidebar": "defaultSidebar",
+  "previous": {
+    "title": "Homepage",
+    "permalink": "/docs/"
+  }
+}

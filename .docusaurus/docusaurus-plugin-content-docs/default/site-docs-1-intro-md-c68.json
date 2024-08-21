@@ -1,0 +1,24 @@
+{
+  "id": "intro",
+  "title": "Homepage",
+  "description": "This is the homepage of the documentation site.",
+  "source": "@site/docs/1-intro.md",
+  "sourceDirName": ".",
+  "slug": "/",
+  "permalink": "/docs/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "title": "Homepage",
+    "description": "This is the homepage of the documentation site.",
+    "slug": "/"
+  },
+  "sidebar": "defaultSidebar",
+  "next": {
+    "title": "Hello from Docusaurus",
+    "permalink": "/docs/content"
+  }
+}
