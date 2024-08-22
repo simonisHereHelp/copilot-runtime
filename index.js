@@ -20,7 +20,13 @@ const openai = new OpenAI({
 
 // Enable CORS
 app.use(cors({
-    origin: 'https://copilot-reactpage.vercel.app',  // Replace with your Vercel frontend URL
+    origin: (origin, callback) => {
+        if (origin?.match(/^https:\/\/copilot.*\.vercel\.app$/) || origin?.match(/^https:\/\/docu.*\.vercel\.app$/) || !origin) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
     methods: 'GET,POST,PUT,DELETE,OPTIONS',
     allowedHeaders: 'Content-Type,Authorization,x-copilotkit-runtime-client-gql-version',
     credentials: true,
