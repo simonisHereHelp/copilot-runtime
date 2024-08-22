@@ -45,5 +45,3 @@ app.use("/copilotkit", (req, res, next) => {
 app.listen(4000, () => {
     console.log("Listening at http://localhost:4000/copilotkit");
   });
-// Export the app for Vercel
-export default app;
