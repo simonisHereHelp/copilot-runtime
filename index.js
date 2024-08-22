@@ -8,7 +8,10 @@ import { config } from "dotenv";
 config();
 
 const key = process.env.OPENAI_API_KEY;
-console.log('key:', key);
+if (!key) {
+    console.error('ERROR: OPENAI_API_KEY is not set!');
+    process.exit(1); // Exit if the API key is not set
+}
 
 const app = express();
 const openai = new OpenAI({
@@ -16,8 +19,12 @@ const openai = new OpenAI({
 });
 
 // Enable CORS
-app.use(cors());
-
+app.use(cors({
+    origin: 'https://copilot-reactpage.vercel.app',  // Replace with your Vercel frontend URL
+    methods: 'GET,POST,PUT,DELETE,OPTIONS',
+    allowedHeaders: 'Content-Type,Authorization',
+    credentials: true,
+}));
 // Add a simple route to respond with "hello!"
 app.get("/", (req, res) => {
     res.send("hello!");
@@ -42,6 +49,7 @@ app.use("/copilotkit", (req, res, next) => {
     }
 });
 
-app.listen(4000, () => {
-    console.log("Listening at http://localhost:4000/copilotkit");
-  });
+const PORT = process.env.PORT || 4000;
+app.listen(PORT, () => {
+    console.log(`Listening at http://localhost:${PORT}/copilotkit`);
+});
