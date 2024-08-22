@@ -22,7 +22,7 @@ const openai = new OpenAI({
 app.use(cors({
     origin: 'https://copilot-reactpage.vercel.app',  // Replace with your Vercel frontend URL
     methods: 'GET,POST,PUT,DELETE,OPTIONS',
-    allowedHeaders: 'Content-Type,Authorization',
+    allowedHeaders: 'Content-Type,Authorization,x-copilotkit-runtime-client-gql-version',
     credentials: true,
 }));
 // Add a simple route to respond with "hello!"
