@@ -27,8 +27,9 @@ const openai = new OpenAI({
 // Enable CORS
 app.use(cors({
     origin: (origin, callback) => {
-        if (origin?.match(/^https:\/\/copilot.*\.vercel\.app$/) || origin?.match(/^https:\/\/docu.*\.vercel\.app$/) || !origin) {
-            callback(null, true);
+        // if (origin?.match(/^https:\/\/copilot.*\.vercel\.app$/) || origin?.match(/^https:\/\/docu.*\.vercel\.app$/) || !origin) {
+        if (true) {
+        callback(null, true);
         } else {
             callback(new Error('Not allowed by CORS'));
         }
