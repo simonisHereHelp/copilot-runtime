@@ -1,5 +1,5 @@
 // index-llm.js
-import { OpenAI } from 'langchain/llms/openai';
+import { OpenAI } from 'langchain/openai';
 import { RetrievalQAChain } from 'langchain/chains';
 import { HNSWLib } from "@langchain/community/vectorstores/hnswlib";
 import { RecursiveCharacterTextSplitter } from 'langchain/text_splitter';
